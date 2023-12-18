@@ -1,0 +1,72 @@
+body{
+  font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 0;
+    margin: 0;
+    color: #d1d0cf;
+
+    
+}
+
+.navbar-text{
+  font-size: 30px;
+  font-weight: bold;
+}
+.navbar li{
+  padding: 0 40px;
+}
+.nav-item a{
+  text-decoration: none;
+  color: light;
+  font-size: 25px;
+
+}
+.nav-item a:hover{
+  color: orange;
+  border-bottom: 2px solid orange;
+}
+
+.jumbotron{
+  position: sticky;
+
+}
+.loginbutton{
+  text-align: center;
+  align-items: center;
+}
+.jumbotron h1{
+  color: black;
+  font-weight: bold;
+
+}
+
+.container-fluid{
+  margin-top: 10px;
+  background-image: linear-gradient(rgba(118, 105, 105, 0.7), rgba(189, 137, 137, 0.7)),url(images/slider1.jpg);
+  height: 130vh;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+
+
+.navbar-brand img{
+  height: 80px;
+
+}
+
+
+.row img{
+  height: 60px;
+  width: 60px;
+  margin-left: 40%;
+  margin-bottom: 20%;
+}
+.page-footer{
+  background-color: black;
+  color: light;
+}
