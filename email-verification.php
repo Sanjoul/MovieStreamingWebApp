@@ -1,26 +1,4 @@
-<?php
 
-if (isset($_POST["verify_email"]))
-{
-    $email = $_POST["mail"];
-    $verification_code = $_POST["verification_code"];
-
-    // connect with database
-    $conn = mysqli_connect("localhost", "root", "", "test");
-
-    // mark email as verified
-    $sql = "UPDATE user1 SET email_verified_at = NOW() WHERE email = '". $email ."' AND verification_code = '". $verification_code ."'";
-    $result  = mysqli_query($conn, $sql);
-
-    if (mysqli_affected_rows($conn) == 0)
-    {
-        die("Verification code failed.");
-    }
-    header("Location: index2.php");
-    exit();
-}
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,7 +23,7 @@ if (isset($_POST["verify_email"]))
             </a>
         </div>
         <div class="login-div">
-            <form  method="POST" class="login" >
+            <form  method="POST" class="login" action="email_verification_process.php" >
                 <h1 style="text-align:center;">Verify</h1>
                 <div class="input-text">
                 <input type="hidden" name="mail" value="<?php echo $_GET['email'];?>" required>

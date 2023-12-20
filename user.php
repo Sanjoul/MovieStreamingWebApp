@@ -24,6 +24,8 @@ if (isset($_POST["SignUp"])){
     $year = $_POST['year'];
     $dob = $date."-".$month."-".$year;
 
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
 
     $mail->SMTPDebug = 0;
     $mail->isSMTP();
@@ -49,7 +51,7 @@ if (isset($_POST["SignUp"])){
   }
 
     $sql = "INSERT INTO user1(username, passwd, name, phone, email, DOB,verification_code, email_verified_at) 
-    values('".$username."','".$password."','".$name."','".$phn."','".$email."','".$dob."','".$verification_code."', NULL)";
+    values('".$username."','".$hashedPassword."','".$name."','".$phn."','".$email."','".$dob."','".$verification_code."', NULL)";
     echo $sql;
     $result = $conn->query($sql);
     header("Location: email-verification.php?email=" . $email);

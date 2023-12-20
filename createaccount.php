@@ -41,6 +41,7 @@ session_start();
             <form method="POST" action="user.php" class="login">
                 <h1>Sign Up</h1>
                 
+                
                 <div class="input-text">
                 
                     <input  type="text" name="fname" placeholder="First Name" value="" required/>
