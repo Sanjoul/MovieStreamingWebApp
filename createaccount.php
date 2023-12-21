@@ -25,9 +25,7 @@ session_start();
       </style>
   
  </head>
- <body>
    
-
    <body>
 
 
@@ -38,7 +36,7 @@ session_start();
             </a>
         </div>
         <div class="login-div">
-            <form method="POST" action="user.php" class="login">
+            <form method="POST" action="user.php" class="login" onsubmit="return validateForm()">
                 <h1>Sign Up</h1>
                 
                 
@@ -177,7 +175,7 @@ session_start();
                  </div>
                 
                 <div>
-                    <button name="SignUp" value="SignUp" class="signin-button">Sign Up</button>
+                    <button type="submit" name="SignUp" value="SignUp" class="signin-button">Sign Up</button>
                 </div>
                 <div class="remember-flex">
                     <div>
@@ -239,5 +237,47 @@ session_start();
         </div>
     </div>
     <script src="js/script.js"></script>
+    <script>
+        function validateForm(){
+        var fname = document.getElementsByName("fname")[0].value;
+        var lname = document.getElementsByName("lname")[0].value;
+        var phn = document.getElementsByName("phn")[0].value;
+        var mail = document.getElementsByName("mail")[0].value;
+        var pass = document.getElementsByName("pass")[0].value;
+
+        if (phn.trim() === "") {
+            alert("Mobile Number cannot be empty");
+            return false;
+        } else if (phn.length !== 10) {
+            alert("Mobile Number must be exactly 10 digits");
+            return false;
+        }
+
+        if (mail.trim() === "") {
+            alert("Email cannot be empty");
+            return false;
+        } else {
+            // You can add a more sophisticated email validation if needed
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(mail)) {
+                alert("Invalid email format");
+                return false;
+            }
+        }
+        if (pass.trim() === "") {
+            alert("Password cannot be empty");
+            return false;
+        } else {
+            // You can add more password requirements, such as minimum length, uppercase, lowercase, etc.
+            // Example: Check if the password is at least 8 characters long
+            if (pass.length < 8) {
+                alert("Password must be at least 8 characters long");
+                return false;
+            }
+        }
+        return true;
+
+        }
+    </script>
 </body>
  </html>
